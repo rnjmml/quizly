@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuiZly</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cloud c1"></div>
+<div class="cloud c2"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.1v13.8a1 1 0 0 0 1.5.9l10.3-6.9a1 1 0 0 0 0-1.7L9.5 4.2A1 1 0 0 0 8 5.1z" fill="currentColor"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a3 3 0 0 1-3 3M7 5H4a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="i-abc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16l3-8 3 8M3.8 13.5h4.4"/><path d="M13 8h2.5a2 2 0 0 1 0 4H13zm0 4h3a2 2 0 0 1 0 4h-3z"/><path d="M22 9.5a2.6 2.6 0 0 0-4 2.5 2.6 2.6 0 0 0 4 2.5"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M8 6.5h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4.2 17A2 2 0 0 0 6 20h12a2 2 0 0 0 1.8-3L15 8.5V2M6 20h12a2 2 0 0 0 1.8-3L15 8.5V2z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 13.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.2 9.2a3 3 0 0 1 5.7 1c0 2-2.9 2.8-2.9 2.8"/><path d="M12 17.2h.01"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z" fill="currentColor"/></symbol>
+  <symbol id="i-face" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01M15 9.5h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</defs></svg>
+
+<div class="top">
+  <div class="logo">QuiZly</div>
+  <div class="top-actions">
+    <button class="profile-btn" id="profile-btn" aria-label="Open login">
+      <span class="profile-icon"><svg width="19" height="19"><use href="#i-face"/></svg></span>
+      Profile
+    </button>
+    <div class="coins">
+      <svg width="20" height="20" style="color:#ffb703"><use href="#i-star"/></svg>
+      <span id="coins">0</span>
+    </div>
+  </div>
+</div>
+
+<div class="stage">
+
+<section class="screen active" id="screen-menu"><div class="card">
+  <div class="menu-title">
+    <span class="mark2">
+      <img src="assets/image-removebg-preview.png" alt="Logo Icon">
+    </span>
+    <span class="menu-text">
+      <span class="menu-h">Let's play!</span>
+      <span class="menu-sub">Pick something to start</span>
+    </span>
+  </div>
+
+  <button class="img-btn" data-go="mode" aria-label="Play">
+    <img src="assets/img/buttons/Play_button.png" alt="Play">
+  </button>
+
+  <button class="img-btn" data-go="challenges" aria-label="Challenges">
+    <img src="assets/img/buttons/Challenges.png" alt="Challenges">
+  </button>
+
+  <button class="img-btn" data-go="tutorial" aria-label="How to play">
+    <img src="assets/img/buttons/How_to_play.png" alt="How to play">
+  </button>
+
+  <button class="img-btn" data-go="settings" aria-label="Settings">
+    <img src="assets/img/buttons/Settings.png" alt="Settings">
+  </button>
+
+  <button class="img-btn" data-go="shop" aria-label="Shop">
+    <img src="assets/img/buttons/Shop.png" alt="Shop">
+  </button>
+
+  <div class="circles">
+    <button class="circle" id="sound-btn" aria-label="Sound">
+      <svg width="22" height="22"><use href="#i-sound" id="sound-icon"/></svg>
+    </button>
+    <button class="circle" data-go="profile" aria-label="Profile">
+      <svg width="22" height="22"><use href="#i-face"/></svg>
+    </button>
+  </div>
+</div></section>
+
+<section class="screen" id="screen-mode"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>How do you want to play?</h2>
+  <p class="sub">Choose one</p>
+
+  <button class="btn study" data-mode="Study">
+    <span class="ico"><svg width="22" height="22"><use href="#i-book"/></svg></span>
+    <span>STUDY<small>No timer, take your time</small></span>
+  </button>
+
+  <button class="btn compete" data-mode="Compete">
+    <span class="ico"><svg width="22" height="22"><use href="#i-cup"/></svg></span>
+    <span>COMPETE<small>Beat the clock for stars</small></span>
+  </button>
+</div></section>
+
+<section class="screen" id="screen-subject"><div class="card">
+  <button class="back" data-back="mode"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Pick a subject</h2>
+  <p class="sub" id="sub-line">Study mode</p>
+
+  <button class="btn english" data-subject="English">
+    <span class="ico"><svg width="22" height="22"><use href="#i-abc"/></svg></span>
+    <span>ENGLISH<small>Words and reading</small></span>
+  </button>
+
+  <button class="btn math" data-subject="Math">
+    <span class="ico"><svg width="22" height="22"><use href="#i-calc"/></svg></span>
+    <span>MATH<small>Numbers and shapes</small></span>
+  </button>
+
+  <button class="btn science" data-subject="Science">
+    <span class="ico"><svg width="22" height="22"><use href="#i-flask"/></svg></span>
+    <span>SCIENCE<small>Nature and space</small></span>
+  </button>
+</div></section>
+
+<section class="screen" id="screen-ready"><div class="card">
+  <button class="back" data-back="subject"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+
+  <div class="note">
+    <div class="big">
+      <svg width="34" height="34" style="color:#ffb703"><use href="#i-star"/></svg>
+    </div>
+    <h3 id="ready-title">Study · English</h3>
+    <p id="ready-sub">10 questions · no timer</p>
+  </div>
+
+  <button class="btn play" id="start-btn">
+    <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+    <span>START<small>Generate your AI quiz</small></span>
+  </button>
+</div></section>
+
+<section class="screen" id="screen-tutorial"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>How to play</h2>
+  <p class="sub">It's easy!</p>
+
+  <ul class="steps">
+    <li><span class="n">1</span>Tap PLAY to begin</li>
+    <li><span class="n">2</span>Pick Study or Compete</li>
+    <li><span class="n">3</span>Choose English, Math or Science</li>
+    <li><span class="n">4</span>Choose your character</li>
+    <li><span class="n">5</span>Answer the AI-generated questions</li>
+    <li><span class="n">6</span>Earn stars for correct answers</li>
+  </ul>
+</div></section>
+
+<section class="screen" id="screen-settings"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Settings</h2>
+  <p class="sub">Set it up how you like</p>
+
+  <div class="opt">
+    <span class="l"><svg width="20" height="20"><use href="#i-sound"/></svg>Sound</span>
+    <button class="sw on" id="sw-sound" role="switch" aria-checked="true"></button>
+  </div>
+
+  <div class="opt">
+    <span class="l"><svg width="20" height="20"><use href="#i-star"/></svg>Animations</span>
+    <button class="sw on" id="sw-anim" role="switch" aria-checked="true"></button>
+  </div>
+
+  <div class="opt">
+    <span class="l"><svg width="20" height="20"><use href="#i-clock"/></svg>Show timer</span>
+    <button class="sw on" id="sw-timer" role="switch" aria-checked="true"></button>
+  </div>
+</div></section>
+
+<section class="screen" id="screen-shop"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Shop</h2>
+  <p class="sub">You have <b id="shop-coins">0</b> stars</p>
+
+  <div class="note">
+    <div class="big"><svg width="34" height="34"><use href="#i-bag"/></svg></div>
+    <h3>Coming soon</h3>
+    <p>New hats and themes are on the way.</p>
+  </div>
+</div></section>
+
+<section class="screen" id="screen-profile"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Your stats</h2>
+  <p class="sub">Profile for <b id="prof-username">guest</b></p>
+
+  <div class="opt">
+    <span class="l"><svg width="20" height="20" style="color:#ffb703"><use href="#i-star"/></svg>Stars</span>
+    <b id="prof-stars">0</b>
+  </div>
+
+  <div class="opt">
+    <span class="l"><svg width="20" height="20"><use href="#i-face"/></svg>Characters</span>
+    <b id="prof-count">0 owned</b>
+  </div>
+
+  <div class="note" id="prof-empty">
+    <div class="big"><svg width="34" height="34"><use href="#i-face"/></svg></div>
+    <h3 id="prof-empty-title">No characters yet</h3>
+    <p>Win quizzes to unlock characters.</p>
+  </div>
+
+  <div class="circles" id="prof-chars-list"></div>
+</div></section>
+
+<section class="screen" id="screen-characters"><div class="card">
+  <button class="back" id="char-back" data-back="menu">
+    <svg width="16" height="16"><use href="#i-back"/></svg>Back
+  </button>
+
+  <h2 id="char-title">Characters</h2>
+  <p class="sub" id="char-sub">Pick who you play as</p>
+
+  <div class="char-stage" id="char-stage">
+    <button class="char-arrow" id="char-prev">
+      <svg width="20" height="20"><use href="#i-back"/></svg>
+    </button>
+
+    <div class="char-show">
+      <img id="char-img" alt="">
+    </div>
+
+    <button class="char-arrow flip" id="char-next">
+      <svg width="20" height="20"><use href="#i-back"/></svg>
+    </button>
+  </div>
+
+  <div class="char-name" id="char-name"></div>
+  <div class="char-dots" id="char-dots"></div>
+
+  <p class="submit-msg" id="char-msg"></p>
+
+  <button class="btn play" id="char-continue">
+    <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+    <span id="char-continue-label">CONTINUE<small>Start the quiz</small></span>
+  </button>
+</div></section>
+
+<section class="screen" id="screen-matchmaking"><div class="card">
+  <button class="back" data-back="characters">
+    <svg width="16" height="16"><use href="#i-back"/></svg>Back
+  </button>
+
+  <h2>Finding a player…</h2>
+  <p class="sub" id="mm-sub">Looking for someone to play against</p>
+
+  <div class="lobby" id="mm-lobby"></div>
+
+  <div class="countdown" id="mm-countdown" style="display:none">
+    <span class="cd-num" id="mm-cd-num">5</span>
+    <span class="cd-txt">Match starting…</span>
+  </div>
+
+  <div class="vote-box" id="mm-vote">
+    <p class="vote-q">Start without a full room?</p>
+
+    <div class="vote-row">
+      <button class="btn study" id="mm-vote-yes">
+        <span class="ico"><svg width="20" height="20"><use href="#i-play"/></svg></span>
+        <span>I'M READY<small>Vote to start</small></span>
+      </button>
+
+      <button class="btn compete" id="mm-vote-no">
+        <span class="ico"><svg width="20" height="20"><use href="#i-clock"/></svg></span>
+        <span>NOT YET<small>Keep waiting</small></span>
+      </button>
+    </div>
+
+    <p class="vote-tally" id="mm-tally"></p>
+  </div>
+
+  <button class="btn tut" id="mm-cancel">
+    <span class="ico"><svg width="22" height="22"><use href="#i-back"/></svg></span>
+    <span>LEAVE<small>Back to characters</small></span>
+  </button>
+</div></section>
+
+<!-- AI QUIZ -->
+
+<section class="screen" id="screen-quiz"><div class="card">
+
+  <div class="quiz-header">
+    <div class="quiz-character">
+      <div class="quiz-avatar" id="quiz-avatar"></div>
+      <div>
+        <b id="quiz-player">Player</b>
+        <small id="quiz-subject-label">Math</small>
+      </div>
+    </div>
+
+    <div class="quiz-score">
+      <svg width="18" height="18"><use href="#i-star"/></svg>
+      <span id="quiz-score">0</span>
+    </div>
+  </div>
+
+  <div class="quiz-progress">
+    <div class="quiz-progress-bar">
+      <div id="quiz-progress-fill"></div>
+    </div>
+    <div class="quiz-progress-text">
+      <span id="quiz-number">Question 1 of 10</span>
+      <span class="quiz-timer" id="quiz-timer">
+        <svg width="17" height="17"><use href="#i-clock"/></svg>
+        <span id="quiz-time">60</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <p class="question-label">QUESTION</p>
+    <h2 id="question-text">Loading question...</h2>
+  </div>
+
+  <div class="answers" id="answers"></div>
+
+  <p class="quiz-feedback" id="quiz-feedback"></p>
+
+  <button class="btn play next-question" id="next-question" style="display:none">
+    <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+    <span id="next-question-text">NEXT QUESTION</span>
+  </button>
+
+</div></section>
+
+<!-- RESULTS -->
+
+<section class="screen" id="screen-results"><div class="card">
+
+  <div class="results-star">
+    <svg width="48" height="48"><use href="#i-star"/></svg>
+  </div>
+
+  <h2 id="results-title">Quiz Complete!</h2>
+  <p class="sub" id="results-sub">Great job!</p>
+
+  <div class="results-score">
+    <span id="results-correct">0</span>
+    <small>/ 10 correct</small>
+  </div>
+
+  <div class="results-stats">
+    <div>
+      <b id="results-stars">0</b>
+      <span>Stars earned</span>
+    </div>
+
+    <div>
+      <b id="results-percent">0%</b>
+      <span>Score</span>
+    </div>
+  </div>
+
+  <div class="results-character" id="results-character"></div>
+
+  <button class="btn play" id="play-again">
+    <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+    <span>PLAY AGAIN<small>Try another quiz</small></span>
+  </button>
+
+  <button class="btn tut" id="results-menu">
+    <span class="ico"><svg width="22" height="22"><use href="#i-back"/></svg></span>
+    <span>MAIN MENU<small>Return to QuiZly</small></span>
+  </button>
+
+</div></section>
+
+<section class="screen" id="screen-challenges"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Challenges</h2>
+  <p class="sub">Daily goals to earn extra stars</p>
+
+  <div class="note">
+    <div class="big"><svg width="34" height="34"><use href="#i-cup"/></svg></div>
+    <h3>Coming soon</h3>
+    <p>Daily and weekly challenges are on the way.</p>
+  </div>
+</div></section>
+
+<section class="screen" id="screen-inventory"><div class="card">
+  <button class="back" data-back="menu"><svg width="16" height="16"><use href="#i-back"/></svg>Back</button>
+  <h2>Inventory</h2>
+  <p class="sub">Your owned items</p>
+
+  <div class="note">
+    <div class="big"><svg width="34" height="34"><use href="#i-bag"/></svg></div>
+    <h3>Nothing here yet</h3>
+    <p>Items you own will show up here.</p>
+  </div>
+</div></section>
+
+</div>
+
+<!-- REGISTER -->
+
+<div class="register-overlay" id="register-overlay" aria-hidden="true">
+  <div class="register-card">
+    <button class="register-back" id="register-back">&lt;</button>
+    <button class="register-close" id="register-close">×</button>
+
+    <h2>Create Account</h2>
+    <p class="register-sub">Enter your details to register</p>
+
+    <form id="register-form">
+
+      <div class="register-field">
+        <label for="register-email">Gmail</label>
+        <input type="email" id="register-email" placeholder="Enter your Gmail">
+      </div>
+
+      <div class="register-field">
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" placeholder="Enter your username">
+      </div>
+
+      <div class="register-field">
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" placeholder="Enter your password">
+      </div>
+
+      <button type="submit" class="register-submit">REGISTER</button>
+      <p class="register-message" id="register-message"></p>
+
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN -->
+
+<div class="login-overlay" id="login-overlay" aria-hidden="true">
+  <div class="login-card">
+
+    <button class="login-close" id="login-close">×</button>
+
+    <h2 id="login-title">Log In</h2>
+    <p class="login-sub" id="login-sub">Enter your account to continue</p>
+
+    <div class="login-choice" id="login-choice" style="display:none">
+
+      <button type="button" class="btn play" id="choice-login">
+        <span class="ico"><svg width="22" height="22"><use href="#i-face"/></svg></span>
+        <span>LOG IN<small>Save your stars and characters</small></span>
+      </button>
+
+      <button type="button" class="btn tut" id="choice-guest">
+        <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+        <span>PLAY AS GUEST<small>Jump in now, nothing saved</small></span>
+      </button>
+
+    </div>
+
+    <div class="login-guest" id="login-guest" style="display:none">
+
+      <div class="login-field">
+        <label for="guest-name">What should we call you?</label>
+        <input type="text" id="guest-name" maxlength="16" placeholder="Type your name">
+      </div>
+
+      <p class="login-message" id="guest-message"></p>
+
+      <button type="button" class="btn play" id="guest-go">
+        <span class="ico"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+        <span>LET'S PLAY<small>Start as a guest</small></span>
+      </button>
+
+      <button type="button" class="login-guest-link" id="guest-back">
+        <svg width="14" height="14"><use href="#i-back"/></svg> Back
+      </button>
+
+    </div>
+
+    <form id="login-form">
+
+      <div class="login-field">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" placeholder="Enter your username">
+      </div>
+
+      <div class="login-field">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password">
+      </div>
+
+      <button type="button" class="forgot" id="forgot-btn">Forgot password?</button>
+
+      <div class="login-actions">
+        <button type="submit" class="login-enter">ENTER</button>
+        <button type="button" class="login-register" id="register-btn">REGISTER</button>
+      </div>
+
+      <p class="login-message" id="login-message"></p>
+
+      <button type="button" class="login-guest-link" id="back-to-choice" style="display:none">
+        <svg width="14" height="14"><use href="#i-back"/></svg> Back
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- PROFILE MENU -->
+
+<div class="profilemenu-overlay" id="profilemenu-overlay" aria-hidden="true">
+  <div class="profilemenu-card">
+
+    <button class="profilemenu-close" id="profilemenu-close">×</button>
+
+    <h2>My Profile</h2>
+
+    <p class="profilemenu-sub">
+      Logged in as <b id="pm-username">guest</b> ·
+      <b id="pm-stars">0</b> stars
+    </p>
+
+    <button class="btn play" id="pm-characters">
+      <span class="ico"><svg width="22" height="22"><use href="#i-face"/></svg></span>
+      <span>CHARACTERS<small>Pick who you play as</small></span>
+    </button>
+
+    <button class="btn shop" id="pm-inventory">
+      <span class="ico"><svg width="22" height="22"><use href="#i-bag"/></svg></span>
+      <span>INVENTORY<small>Your owned items</small></span>
+    </button>
+
+    <button class="btn set" id="pm-logout">
+      <span class="ico"><svg width="22" height="22"><use href="#i-back"/></svg></span>
+      <span>LOG OUT<small>Leave this account</small></span>
+    </button>
+
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
